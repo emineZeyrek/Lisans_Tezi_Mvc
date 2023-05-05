@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = "~/Views/Stock/StockCardRecords/_LayoutStockCardRecords.cshtml";
+    ViewData["Title"] = "StockDefinition";
+}
+
+
+@model dynamic
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="row">
+                <div class="col-md-12">
+                    <h5>Stock Bilgisi Listesi</h5>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Stok Kodu</th>
+                                <th scope="col">Stok Adı</th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <th scope="row">@item.Id</th>
+                                    <td>@item.STOK_KODU</td>
+                                    <td>@item.STOK_ADI</td>
+
+                                </tr>
+                            }
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form asp-action="Add" method="post">
+                        <label for="STOK_KODU" class="form-label" />
+                        <input type="text" name="STOK_KODU" class="form-control" />
+                        <label for="STOK_ADI" class="form-label" />
+                        <input type="text" name="STOK_ADI" class="form-control" />
+                        <button type="submit">Ekle</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

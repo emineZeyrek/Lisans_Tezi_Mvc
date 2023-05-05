@@ -1,0 +1,63 @@
+﻿@model List<ACCOUNTING_CODE_DEFINITION>
+
+@{
+    Layout = "~/Views/Accounting/AccountingCodeDefinition/_LayoutAccountingCodeDefinition.cshtml";
+    ViewData["Title"] = "AccountingCodeDefinition";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="row mt-2">
+                <form asp-action="Add" method="post">
+                    <div class="col-md-2">
+                        <label for="MUHASEBE_KODU_lbl">Muhasebe Kodu:</label>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <input class="form-control " name="MUHASEBE_KODU" type="text">
+                    </div>
+                    <div class="col-md-2">
+                        <label for="MUHASEBE_ADI_lbl">Muhasebe Adı:</label>
+                    </div>
+                    <div class="col-md-4 text-start">
+                        <input class="form-control " name="MUHASEBE_ADI" type="text">
+                    </div>
+                    <button type="submit">Ekle</button>
+                </form>
+            </div>
+       
+
+            <div class="row mt-1">
+                <div class="col">
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">Muhasebe Kodu</th>
+                                    <th scope="col">Muhasebe Adı</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model)
+                                {
+                                    <tr>
+                                        <th scope="row">@item.Id</th>
+                                        <td>@item.MUHASEBE_KODU</td>
+                                        <td>@item.MUHASEBE_ADI</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    else
+                    {
+                        <p>Kayıt bulunamadı.</p>
+                    }
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
